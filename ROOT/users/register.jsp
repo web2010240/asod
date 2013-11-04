@@ -1,15 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="java.lang.Exception" %>
-<jsp:useBean id="user" class="info.asod.School" />
 <html lang="el">
     <head>
         <title>asod.org</title>
         <meta charset="utf-8" />
     </head>
     <body>
-        <% try { 
-            user.checkIp(request.getRemoteAddr()); %>
-            
         <form action="login.jsp" method="post">
             <table>
                 <tr>
@@ -106,11 +101,5 @@
                 </tr>
             </table>
         </form>
-        <%}catch(Exception e) { 
-        out.println(e);
-        %>
-        failed biatch
-        <% } %>
-        
     </body>
 </html>
