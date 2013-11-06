@@ -5,7 +5,7 @@
 <html lang="el">
     <head>
         <meta charset="utf-8" />
-        <title>index.html</title>
+        <title>Αξιολόγηση Σωματικής ∆ιάπλασης</title>
         <link rel="stylesheet" href="css/main.css" />
     </head>
     <body>
@@ -37,7 +37,7 @@
                         user.checkIp(request.getRemoteAddr()); 
                         info.asod.CaptchasDotNet captchas = new info.asod.CaptchasDotNet(request.getSession(true), "demo", "secret");
                         %>
-                        <form action="<%=response.encodeUrl("check.jsp")%>" method="post">
+                        <form action="<%=response.encodeUrl("check_register.jsp")%>" method="post">
                             <table>
                                 <tr>
                                     <td>Όνομα Σχολειου:</td>

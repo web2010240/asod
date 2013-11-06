@@ -34,13 +34,24 @@
             <section id="main_section">
                 <article id="welcome_article">
                     <header id="welcome_header">
-                        <h1>Καλώς ήρθατε</h1>
+                        <h1>Συνδεθείτε!</h1>
                     </header>
-                    <p>Η δημιουργία αυτής τις ιστοσελίδας έχει ως σκοπό την εγγραφη 
-                        σχολειων με αποτέλεσμα να εισάγουν τους μαθητές τους ώστε να γίνουν 
-                        οι κατάλληλες μετρήσεις διατροφής και σωματικής δραστηριότητας
-                    </p>
-                </article>
+                    <form method="post" action="<%=response.encodeUrl("check_login.jsp")%>">
+                        <table>
+                            <tr>
+                                <td>Όνομα χρήστη:</td>
+                                <td><input type="text" maxlength="30"></td>
+                            </tr>
+                            <tr>
+                                <td>Κωδικός:</td>
+                                <td><input type="password" maxlength="40"</td>
+                            </tr>
+                            <tr>
+                                <td><input type="submit" value="Σύνδεση"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </article>    
             </section>
             <footer id="the_footer">
                 &copy;Digital universe team 
