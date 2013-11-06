@@ -1,0 +1,80 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+header, nav, section, footer, aside, article {
+    display:block;
+}
+
+body{
+    text-align:center;
+}
+img{
+      border-style: none;
+}
+#main{
+    width: 80%;
+    margin: 20px auto;
+    text-align:left;
+}
+
+#top_header{
+    text-align:left;
+    background:#E6E6DC;
+    padding: 10px;
+}
+#top_header h1{
+    text-align:center;
+    font-family: Arial, sans-serif;
+}
+
+#nav_menu{
+    background: #437fbb;
+    word-spacing:40px;
+    text-align:center;
+    padding: 10px;
+}
+
+#nav_menu li{
+    display:inline-block;
+    list-style:none;
+    padding:10px;
+    font: bold 14px Tahoma;
+}
+
+#main_section{
+    float:left;
+    width:66%; /*30 left*/
+    margin:20px;
+}
+
+#side_right{
+    float:right;
+    width:26%;
+    margin:20px;
+}
+article
+{
+  padding: 14px;
+  margin: 3px;
+  background:white;
+}
+article p
+{
+    text-align:left;
+    font: bold 20px Tahoma;
+    margin:10px;
+}
+#welcome_header{
+    font: bold 23px Tahoma;
+    text-align:center;
+}
+#the_footer{
+    clear:both; /* dont use float */
+    text-align:center;
+    padding:10px;
+    background:#a1a1a1;
+    color: #e9e9e9;
+}
+

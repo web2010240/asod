@@ -8,10 +8,8 @@ public class School {
     }
     public void checkIp(String ip) throws Exception
     {
-        int a = 3;
-
-        if (a == 3)
-            throw new Exception(ip);
+        if (ip.regionMatches(0, "194.63", 0, 6))
+            throw new Exception("not valid ip");
     }
 }
 
