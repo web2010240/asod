@@ -1,5 +1,5 @@
 package info.asod;
-import java.util.ArrayList;
+
 import java.lang.Exception;
 public class School {
     private String name;
@@ -90,10 +90,11 @@ public class School {
     }
     public void setPassword() throws Exception
     {
+        Crypt c = new Crypt();
         try {
-            password = Crypt.getSha1(name+email+ip+odos+number).substring(0, 10);
-            Email.sendEmail(email, "Αξιολόγηση Σωματικής ∆ιάπλασης", "Σας ενημερώνουμε ότι ο κωδικός για να συνδεθείτε είναι: "+password);
-            md5Pass = Crypt.getMd5(password);
+            password = c.getSha1(name+email+ip+odos+number).substring(0, 10);
+            Email.sendEmail(
+            md5Pass = c.getMd5(password);
         }
         catch(Exception e)
         {
@@ -103,14 +104,9 @@ public class School {
     public void insert() throws Exception
     {
         MySql c = new MySql();
-    
+
         try{
-            c.connect("asod_root", "DigitalUniverse");
-            c.executeQuery("SELECT email FROM school WHERE email=\'"+email+"\';");
-            c.readColumns();
-            ArrayList<String> t = c.readRows();
-            if (!t.isEmpty())
-                throw new Exception("Έχετε εγγραφει ήδη!");
+            c.connect("asod_root", "stixoima92");
             int r = c.executeUpdate("INSERT school(name, nomos, odos, number, email, site, tupos, ip, password) "
                     +"VALUES(\'"+name+"\', \'"+nomos+"\', \'"+odos+"\', \'"+number+"\', \'"+email+"\', \'"+site+"\', \'"+tupos+"\', \'"+ip+"\', \'"+md5Pass+"\');");
             c.closeConnection();
@@ -119,28 +115,7 @@ public class School {
             throw e;
         }
     }
-    public void checkLogin(String email, String password) throws Exception
-    {
-        MySql c = new MySql();
 
-        try {
-            c.connect("asod_root", "DigitalUniverse");
-            c.executeQuery("SELECT email FROM school WHERE email=\'"+email+"\' and password=\'"+password+"\';");
-            c.readColumns();
-            ArrayList<String> t = c.readRows();
-            if (t.isEmpty())
-                throw new Exception("Πληκτρολογήσατε λάθος email η κωδικό");
-            c.closeConnection();
-        }
-        catch(Exception e)
-        {
-            throw new Exception("Πληκτρολογήσατε λάθος email η κωδικό");
-        }
-    }
-    public void checkAuth(String email, String password) throws Exception
-    {
-        if (email.isEmpty() || password.isEmpty())
-            throw new Exception("Πρεπει να συνδεθειτε πρωτα!");
-    }
+
 }
 

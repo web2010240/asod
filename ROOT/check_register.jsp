@@ -1,6 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.lang.Exception" %>
-<jsp:useBean id="user" class="info.asod.School" />
 <!doctype html>
 <html lang="el">
     <head>
@@ -19,7 +18,7 @@
                     <li><a href="index.jsp"><h3>Κεντρική</h3></a></li>
                     <li><a href="register.jsp"><h3>Εγγραφή<h3></a></li>
                     <li><a href="login.jsp"><h3>Σύνδεση</h3></a></li>
-                    <li><a href="mailto:nick@DigitalUniverse.net"><h3>Επικοινωνία</h3></a></li>
+                    <li><a href="mailto:digitaluniverseasod@gmail.com"><h3>Επικοινωνία</h3></a></li>
                 </ul>
             </nav>
             <aside id = "side_right">
@@ -33,6 +32,9 @@
             </aside>
             <section id="main_section">
                 <article id="welcome_article">
+                <% request.setCharacterEncoding("UTF-8");
+                response.setCharacterEncoding("UTF-8");
+                %>
                     <%
                     try {
                         info.asod.CaptchasDotNet captchas = new info.asod.CaptchasDotNet(request.getSession(true), "demo", "secret");
@@ -42,18 +44,13 @@
                         switch(captchas.check(password)) {
                             case 's':
                                 body = "Το session τις σύνδεσης σας έλειξε. <br>";
-                                body += "παρακαλώ προσπαθήστε ξανά η επικοινωνήστε ";
-                                body += "με τους διαχειριστές επιλέγοντας \"επικοιωνία\"";
                                 throw new Exception(body);
                             case 'm':
                                 body = "κάθε κωδικός captcha μπορεί να χρησιμοποιηθεί μονο ";
-                                body += "μια φορα.<br> Παρακαλώ εγγραφείτε ξανά η επικοινωνήστε ";
-                                body += "με τους διαχειριστές επιλέγοντας \"επικοιωνία\"";
+                                body += "μια φορα";
                                 throw new Exception(body);
                             case 'w':
                                 body = "Δώσατε λανθασμένο κωδικό captcha. <br>";
-                                body += "Παρακαλώ εγγραφείτε ξανά η επικοινωνήστε ";
-                                body += "με τους διαχειριστές επιλέγοντας \"επικοιωνία\"";
                                 throw new Exception(body);
                         }
                         String uname = request.getParameter("uname");
@@ -64,17 +61,22 @@
                         String site = request.getParameter("site");
                         String tupos = request.getParameter("tupos");
                         String ip = request.getRemoteAddr();
-                        out.println(uname);
-                        out.println(ip);
+                        
+                        info.asod.School user = new info.asod.School(uname, nomos, odos, number, email, site, tupos, ip);
+                        user.setPassword();
+                        user.insert();
                         out.println("Η εγγραφη σας έγινε επιτυχώς! "
-                        +"Το όνομα και ο κωδικός θα σταλούν στην ηλεκτρονική"
+                        +"Το όνομα και ο κωδικός θα σταλούν στην ηλεκτρονική "
                         +"σας διεύθυνση μετά την λήξει τις προθεσμίας εγγραφων.<br>"
-                        +"Σε περίπτωση που δώσατε κάποιο λανθασμένο στοιχειο κατά"
-                        +"την εγγραφη σας παρακαλώ εγγραφείτε ξανά.<br>");
+                        +"Σε περίπτωση που δώσατε κάποιο λανθασμένο στοιχειο κατά "
+                        +"την εγγραφη σας παρακαλώ εγγραφείτε ξανά.");
 
                     }
                     catch(Exception e) {
-                        out.println(e);
+                        out.println("Σφαλμα! ");
+                        out.println(e.getMessage());
+                        out.println("<br>Παρακαλώ εγγραφείτε <a href=\"register.jsp\">ξανά</a>"
+                        +" ή επικοινωνήστε με τους διαχειριστές επιλέγοντας \"επικοιωνία\"");
                     }
                     %>
                 </article>

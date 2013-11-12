@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.lang.Exception" %>
-<jsp:useBean id="user" class="info.asod.School" />
+<jsp:useBean id="user" class="info.asod.School"/>
 <!doctype html>
 <html lang="el">
     <head>
@@ -33,13 +33,24 @@
             </aside>
             <section id="main_section">
                 <article id="welcome_article">
-                    <header id="welcome_header">
-                        <h1>Καλώς ήρθατε</h1>
-                    </header>
-                    <p>Η δημιουργία αυτής τις ιστοσελίδας έχει ως σκοπό την εγγραφη 
-                        σχολειων με αποτέλεσμα να εισάγουν τους μαθητές τους ώστε να γίνουν 
-                        οι κατάλληλες μετρήσεις διατροφής και σωματικής δραστηριότητας
-                    </p>
+                <% request.setCharacterEncoding("UTF-8");
+                response.setCharacterEncoding("UTF-8");
+                %>
+                    <%
+                    try {
+                        String email = request.getParameter("email");
+                        String password = info.asod.Crypt.getMd5(request.getParameter("password"));
+                        user.checkLogin(email, password);
+                        session.setAttribute("username", email);
+                        session.setAttribute("password", password);
+                        response.sendRedirect("add.jsp");
+                    }
+                    catch(Exception e) {
+                        out.println("Σφαλμα! ");
+                        out.println(e.getMessage());
+                        out.println("Επικοινωνήστε με τους διαχειριστές επιλέγοντας \"επικοιωνία\"");
+                    }
+                    %>
                 </article>
             </section>
             <footer id="the_footer">

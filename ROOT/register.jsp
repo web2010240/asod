@@ -19,7 +19,7 @@
                     <li><a href="index.jsp"><h3>Κεντρική</h3></a></li>
                     <li><a href="register.jsp"><h3>Εγγραφή<h3></a></li>
                     <li><a href="login.jsp"><h3>Σύνδεση</h3></a></li>
-                    <li><a href="mailto:nick@DigitalUniverse.net"><h3>Επικοινωνια</h3></a></li>
+                    <li><a href="mailto:digitaluniverseasod@gmail.com"><h3>Επικοινωνια</h3></a></li>
                 </ul>    
             </nav>
             <aside id = "side_right">
@@ -122,7 +122,6 @@
                                     <td>
                                         <select name="tupos">
                                             <option value="Γυμνάσιο">Γυμνάσιο</option>
-                                            <option value="Λύκειο-ΕΠΑΛ">Λύκειο-ΕΠΑΛ</option>
                                             <option value="Δημοτικό">Δημοτικό</option>
                                             <option value="Νηπιαγωγείο">Νηπιαγωγείο</option>
                                         </select>
@@ -140,9 +139,12 @@
                                 </tr>
                             </table>
                         </form>
-                        <%}catch(Exception e) { %>
-                        Δεν βρισκεστε στο δικτυο του sch.gr 
-                                <%out.println(e);} %>
+                        <%} catch(Exception e) { 
+                            out.println(e.getMessage());
+                            out.println("<br>Παρακαλώ εγγραφείτε <a href=\"register.jsp\">ξανά</a>"
+                                +" ή επικοινωνήστε με τους διαχειριστές επιλέγοντας \"επικοιωνία\"");
+			    } 
+                        %>
                 </article>    
             </section>
             <footer id="the_footer">

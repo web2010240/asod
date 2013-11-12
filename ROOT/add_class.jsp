@@ -33,13 +33,36 @@
             </aside>
             <section id="main_section">
                 <article id="welcome_article">
-                    <header id="welcome_header">
-                        <h1>Καλώς ήρθατε</h1>
-                    </header>
-                    <p>Η δημιουργία αυτής τις ιστοσελίδας έχει ως σκοπό την εγγραφη 
-                        σχολειων με αποτέλεσμα να εισάγουν τους μαθητές τους ώστε να γίνουν 
-                        οι κατάλληλες μετρήσεις διατροφής και σωματικής δραστηριότητας
-                    </p>
+                    <%
+                    try{
+                        String username = (String )session.getAttribute("username");
+                        String password = (String )session.getAttribute("password");
+                        user.checkAuth(username, password);
+                    %>
+                    <form action="<%=response.encodeUrl("add_teacher.jsp")%>" method="post">
+                        <% for (int i = 1; i <= 6; i++) { %>
+                            <table>
+                                <tr>
+                                    <th><%= i%>η ταξη</th>
+                                </tr>
+                                <tr>
+                                    <td>αριθμός τμημάτων:</td>
+                                    <td><input type="number" name="class_num<%=i %>"></td>
+                                </tr>
+                        <%}%>
+                                <tr>
+                                    <td><input type="submit" value="Εγγραφη"></td>
+                                </tr>
+                            </table>
+                        </form>
+                    <%
+                    }catch(Exception e)
+                    {
+                         out.println("Σφαλμα! ");
+                         out.println(e.getMessage());
+                         out.println("Επικοινωνήστε με τους διαχειριστές επιλέγοντας \"επικοιωνία\"");
+                    }
+                    %>
                 </article>
             </section>
             <footer id="the_footer">
