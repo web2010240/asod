@@ -16,10 +16,10 @@
             </header>
             <nav id="nav_menu">
                 <ul>
-                    <li><a href="index.jsp"><h3>Κεντρική</h3></a></li>
-                    <li><a href="register.jsp"><h3>Εγγραφή<h3></a></li>
-                    <li><a href="login.jsp"><h3>Σύνδεση</h3></a></li>
-                    <li><a href="mailto:digitaluniverseasod@gmail.com"><h3>Επικοινωνια</h3></a></li>
+                    <li><a class="topLinks" href="index.jsp"><h3>Κεντρική</h3></a></li>
+                    <li><a class="topLinks" href="register.jsp"><h3>Εγγραφή<h3></a></li>
+                    <li><a class="topLinks" href="login.jsp"><h3>Σύνδεση</h3></a></li>
+                    <li><a class="topLinks" href="mailto:digitaluniverseasod@gmail.com"><h3>Επικοινωνια</h3></a></li>
                 </ul>    
             </nav>
             <aside id = "side_right">

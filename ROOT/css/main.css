@@ -2,6 +2,27 @@
     margin: 0px;
     padding: 0px;
 }
+a{
+  color:#003366;
+}
+a:hover{
+  color:#870505;
+}
+a:active{
+  color:#333333;
+}
+.topLinks{
+  color:#C7D4FF;
+  font: bold 16px Century Gothic;
+  text-shadow:0 1px 0 #000000;
+  text-decoration: none
+}
+a.topLinks:hover{
+  color:#000A2E;
+  font: bold 16px Century Gothic;
+  text-shadow:0 1px 0 #000000;
+  text-decoration: none
+}
 
 header, nav, section, footer, aside, article {
     display:block;
@@ -31,6 +52,7 @@ img{
 
 #nav_menu{
     background: #437fbb;
+    color:white;
     word-spacing:40px;
     text-align:center;
     padding: 10px;
@@ -45,14 +67,19 @@ img{
 
 #main_section{
     float:left;
-    width:66%; /*30 left*/
-    margin:20px;
+    width:60%; /*30 left*/
+    margin:3%;
+    margin-right: 1px auto;
+    text-align:center;
 }
 
 #side_right{
     float:right;
-    width:26%;
-    margin:20px;
+    width:20%;
+    margin:3%;
+    margin-left:auto;
+    text-align: center;
+
 }
 article
 {
