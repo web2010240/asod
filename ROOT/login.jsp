@@ -19,7 +19,7 @@
                     <li><a class="topLinks" href="index.jsp"><h3>Κεντρική</h3></a></li>
                     <li><a class="topLinks" href="register.jsp"><h3>Εγγραφή<h3></a></li>
                     <li><a class="topLinks" href="login.jsp"><h3>Σύνδεση</h3></a></li>
-                    <li><a class="topLinks" href="digitaluniverseasod@gmail.com"><h3>Επικοινωνία</h3></a></li>
+                    <li><a class="topLinks" href="mailto:digitaluniverseasod@gmail.com"><h3>Επικοινωνία</h3></a></li>
                 </ul>
             </nav>
             <aside id = "side_right">
