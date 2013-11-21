@@ -1,6 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.lang.Exception" %>
-<jsp:useBean id="user" class="info.asod.School" /> 
 
 <!doctype html>
 <html lang="el">

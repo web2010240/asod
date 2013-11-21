@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class MySql
 {
-    static final String DATABASE_URL = "jdbc:mysql://localhost:3306/asod?useUnicode=yes&characterEncoding=UTF-8";
+    static final String DATABASE_URL = "jdbc:mysql://83.212.110.160:3306/asod?useUnicode=yes&characterEncoding=UTF-8";
     private Connection con = null;
     private Statement state = null;
     private ResultSet result = null;
